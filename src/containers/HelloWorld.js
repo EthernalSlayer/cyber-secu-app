@@ -179,11 +179,11 @@ const HelloWorld = () => {
       <ShellText>
         N'ayant pas d'exemple historique d'attaque avec des rogues je t'invite a
         aller voir la serie de vidéos{" "}
-        <Italic>"j'ai infiltré un réseau d'arnaqueurs"</Italic> de Micode sur
-        youtube. (Micode se fait passer sur youtube pour se qu'il n'est pas,
-        c'est un script kiddie pas un hacker, mais même si je ne l'aime pas et
-        qu'il est très mauvais cette série de vidéo te permettra de comprendre
-        tout les rouages du fonctionnement d'un rogue)
+        <Italic>"j'ai infiltré un réseau d'arnaqueurs"</Italic> de{" "}
+        <Important>Micode</Important> sur youtube. (Micode n'est pas mon
+        youtubeur préférer, mais même si je ne l'aime pas trop cette série de
+        vidéo te permettra de comprendre tout les rouages du fonctionnement d'un
+        rogue)
       </ShellText>
       <Lien
         href="https://www.youtube.com/watch?v=gbYdQOde6EU"
