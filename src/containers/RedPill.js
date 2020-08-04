@@ -9,6 +9,8 @@ import ddos1 from "../ddos1.png";
 import ddos2 from "../ddos2.png";
 import ddos3 from "../ddos3.png";
 import mitm from "../mitm1.png";
+import csrf1 from "../attaqueCSRF.png";
+import lulz from "../forTheLulz.png";
 
 const RedPill = () => {
   return (
@@ -353,7 +355,7 @@ const RedPill = () => {
       </ShellText>
       <ShellText>
         Cette variante est plus complexe à expliquer car elle ressemble beaucoup
-        à la deuxième mais retient que contrairement aux deux autres elle
+        à la deuxième mais retient juste que contrairement aux deux autres elle
         n'utilise par le serveur web et que tout se passe directement dans le
         navigateur de la victime.
       </ShellText>
@@ -368,6 +370,68 @@ const RedPill = () => {
           conforme a se qui attendu.
         </Italic>
       </ShellText>
+      <ShellTitle>~/9-L'attaque CSRF (Cross Site Request Forgery)</ShellTitle>
+      <ShellText>
+        Le but d'une attaque <Important>CSRF</Important> est de transmettre à un
+        utilisateur connecté une <Italic>requête HTTP</Italic> frauduleuse qui
+        pointe sur une action interne au site, afin que l'utilisateur exécute la
+        requête sans s'en rendre compte et avec son compte. L'utilisateur
+        devient donc sans en avoir conscience complice de l'attaque. Pour mieux
+        comprendre nous allons étudier le déroulement d'une attaque{" "}
+        <Important>CSRF</Important>.
+      </ShellText>
+      <Image src={csrf1} alt="schéma d'une attaque CSRF" />
+      <ShellText>
+        <Important>étape 1:</Important>
+      </ShellText>
+      <ShellText>
+        La victime est connecté a un forum et un autre utilisateur
+        malintentionné lui envois un lien vers un site web malicieux. Cette page
+        web contiendra quelques lignes de code qui déclencheront automatiquement
+        une requête vers le site cible (<Italic>le forum</Italic>). Ces quelques
+        lignes pourraient par exemple être une <Italic>balise img</Italic> qui
+        au lieu de charger une image effectuera une requête vers le site cible.
+      </ShellText>
+      <ShellText>
+        <Italic>
+          &lt;img
+          src=“http://mytarget.com/change_password.php?new_password=letmein”
+          height=0 width=0&gt;
+        </Italic>
+      </ShellText>
+      <ShellText>
+        <Important>étape 2:</Important>
+      </ShellText>
+      <ShellText>
+        Lors de sa naviguation sur le site malicieux, le naviguateur de la
+        victime va parcourir le code écrit par l'attaquant et donc lire les
+        quelques lignes de code contenues dans la <Italic>balise img</Italic>.
+      </ShellText>
+      <ShellText>
+        <Important>étape 3:</Important>
+      </ShellText>
+      <ShellText>
+        La victime va donc sans s'en apercevoir envoyer la requête vers le
+        forum, executant ainsi l'action que souhaite l'attaquant. Dans notre
+        exemple la victime envois une requête pour effectuer un changement de
+        mot de passe sur le forum sans le savoir, mais du point du vue du forum
+        c'est bel et bien la victime qui souhaite effectuer ce changment.
+      </ShellText>
+      <ShellText>
+        <Italic>
+          En tant qu'utilisateur pour éviter d'être pris au piège par ce type
+          d'attaque je vous recommande de toujours vous déconnecter après avoir
+          terminé votre navigation et de ne jamais autoriser votre navigateur à
+          enrigister vos identifiants ou même les sites web à se souvenir de
+          vous. Côté dev c'est un peu plus compliquer pour empécher se genre
+          d'attaque il faut mettre en place un système de tokens anti-CSRF ou
+          demander une ré-authentification à l'utilisateur pour certaines
+          requêtes afin de s'assurer qu'il en est bien l'auteur.
+        </Italic>
+      </ShellText>
+      <MainTitle>FOR THE LULZ ^^</MainTitle>
+      <Image src={lulz} alt="a bigUp to lulzsec" />
+      <MainTitle>THANKS FOR WATCHING</MainTitle>
     </div>
   );
 };
