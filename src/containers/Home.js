@@ -13,17 +13,15 @@ const Home = () => {
       <MainTitle>Welcome to Hack for noob</MainTitle>
       <ShellTitle>~/documents $ cat intruction.txt</ShellTitle>
       <ShellText>Bienvenue jeune Padawan</ShellText>
+      <ShellText>Tu t'interesse au hack, à la cyber sécurité, etc...</ShellText>
       <ShellText>
-        Tu t'interesse au hack, a la cyber sécuriter, etc...
-      </ShellText>
-      <ShellText>
-        J'ai créer se site afin de créer une porte d'entrer grand public à
+        J'ai créé ce site afin de créer une porte d'entrer grand public dans
         l'univers des <Important>H4ck3rs</Important>
       </ShellText>
       <ShellText>
         <Italic>
           Laisse moi te guider et te faire découvrir le vaste monde de la cyber
-          sécuriter
+          sécurité
         </Italic>
       </ShellText>
       <Image src={hackerJr} alt="hacker in the street" />
